@@ -1,0 +1,52 @@
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class RockPaperScissors {
+	
+	public static void main (String[] args){	
+	
+		int yourScore = 0;
+		int computerScore = 0;
+		int rockCounter = 0;
+		int paperCounter = 0;
+		int scissorsCounter = 0;
+	
+		while(yourScore !=5 && computerScore !=5){
+			Scanner user_input = new Scanner (System.in);
+			System.out.println("Rock, paper or scissors...first to five points wins.");
+			String userOption = user_input.next().toLowerCase();
+			String[] computerOption = new String[]{"rock","paper","scissors"}; // string array of options
+			Random rn = new Random();
+			int ranIndex = rn.nextInt(3); //to generate random index in the array
+		
+			// if it is a tie
+			if(userOption.equals(computerOption[ranIndex])){ 
+				System.out.print("The game is a tie. ");
+			}
+			// if the user loses
+			else if(userOption.equals("scissors") && computerOption[ranIndex].equals("rock") || userOption.equals("rock") && computerOption[ranIndex].equals("paper") || userOption.equals("paper") && computerOption[ranIndex].equals("scissors")){
+				System.out.print("You lose this round. ");
+				computerScore++; //increase score of computer
+			}
+			// if the user wins
+			else{
+				System.out.print("You win this round. ");
+				yourScore++; // increase score of user
+			}
+		
+			System.out.println("You played " + userOption + ". The computer played " + computerOption[ranIndex]);
+			System.out.println("Score: Player: " + yourScore + " Computer: " + computerScore);
+		}
+		
+		if (yourScore == 5 && computerScore !=5){ // user wins the game if he/she reaches 5 points first
+			System.out.println("Congratulations, you have won the game!");
+		}
+		if (computerScore == 5 && yourScore !=5){ // the computer wins the game if it reaches 5 points first
+			System.out.println("You have lost this game. Try again next time.");
+		}
+	
+	}
+	
+}
+
