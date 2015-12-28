@@ -8,9 +8,6 @@ public class RockPaperScissors {
 	
 		int yourScore = 0;
 		int computerScore = 0;
-		int rockCounter = 0;
-		int paperCounter = 0;
-		int scissorsCounter = 0;
 	
 		while(yourScore !=5 && computerScore !=5){
 			Scanner user_input = new Scanner (System.in);
